@@ -1,8 +1,10 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import { Inter,Outfit } from 'next/font/google'
+import CarProvider from '@/app/context/CarContext'
+import { QueryProvider } from './context/QueryContext'
+import RentalDuration from './components/RentalDuration'
+const outfit = Outfit({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +18,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      
+      <CarProvider>
+      <QueryProvider>
+      <body className={outfit.className}>
+        <RentalDuration />
+        {children}</body>
+      </QueryProvider>
+      </CarProvider>
+      
     </html>
   )
 }

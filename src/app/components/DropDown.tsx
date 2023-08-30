@@ -1,0 +1,31 @@
+import React from 'react';
+
+const Dropdown = ({ options, selected, setSelected }:any) => {
+  const handleChange = (event:any) => {
+    setSelected(event.target.value);
+  };
+
+  return (
+    <select  className="p-2  text-black w-full outline-none border-[2px] border-black rounded-full" value={selected} onChange={handleChange}>
+      {options.map((option:any) => (
+        <option className='text-black' key={option} value={option}>
+          {option}
+        </option>
+      ))}
+    </select>
+  );
+};
+
+export default Dropdown;
+
+
+
+
+
+
+
+
+
+
+
+
