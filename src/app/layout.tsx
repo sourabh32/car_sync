@@ -25,7 +25,7 @@ export default function RootLayout({
       <CarProvider>
       <QueryProvider>
       <body className={outfit.className}>
-        <RentalDuration />
+        {/* <RentalDuration /> */}
         {children}</body>
       </QueryProvider>
       </CarProvider>
