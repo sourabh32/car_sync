@@ -4,9 +4,9 @@
 import React from 'react'
 
 
-import Wrapper from "@/app/components/Wrapper"
-import CarsList from './components/CarList'
-import Hero from './components/Hero'
+import Wrapper from "@/components/Wrapper"
+import CarsList from '@/components/CarList'
+import Hero from '@/components/Hero'
 export default function Home() {
 
 

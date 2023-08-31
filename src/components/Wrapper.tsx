@@ -1,5 +1,5 @@
 import React, { useState,useEffect, use } from 'react';
-import {manufacturers,fuels,yearsOfProduction} from "@/app/static/index"
+import {manufacturers,fuels,yearsOfProduction} from "@/static/index"
 import DropDown from './DropDown'; 
 import axios from "axios"
 

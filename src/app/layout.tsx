@@ -1,9 +1,9 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter,Outfit } from 'next/font/google'
-import CarProvider from '@/app/context/CarContext'
-import { QueryProvider } from './context/QueryContext'
-import RentalDuration from './components/RentalDuration'
+import CarProvider from '@/context/CarContext'
+import { QueryProvider } from '../context/QueryContext'
+import RentalDuration from '../components/RentalDuration'
 const outfit = Outfit({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
