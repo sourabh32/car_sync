@@ -1,6 +1,7 @@
 "use client"
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import RentalDuration from './src/components/RentalDuration'
 
 const LocationInput = () => {
     const [startLocation,setStartLocation] = useState("")

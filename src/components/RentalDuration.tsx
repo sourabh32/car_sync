@@ -1,24 +1,26 @@
 "use client"
 
+import { useRideContext } from '@/context/RideContext';
 import React,{useState,ChangeEvent} from 'react'
 
 const RentalDuration = () => {
 
-    const [startDate, setStartDate] = useState<string>('');
-    const [endDate, setEndDate] = useState<string>('');
+    
     const [timeDifferenceHours, setTimeDifferenceHours] = useState<number>(0);
+
+    const {startTime,setStartTime,setEndTime,endTime} = useRideContext()
   console.log(timeDifferenceHours.toFixed())
     const handleStartDateChange = (event: ChangeEvent<HTMLInputElement>) => {
       const newStartDate = event.target.value;
       console.log(newStartDate)
-      setStartDate(newStartDate);
-      calculateTimeDifference(newStartDate, endDate);
+      setStartTime(newStartDate);
+      calculateTimeDifference(newStartDate, endTime);
     };
   
     const handleEndDateChange = (event: ChangeEvent<HTMLInputElement>) => {
       const newEndDate = event.target.value;
-      setEndDate(newEndDate);
-      calculateTimeDifference(startDate, newEndDate);
+      setEndTime(newEndDate);
+      calculateTimeDifference(startTime, newEndDate);
     };
   
     const calculateTimeDifference = (start: string, end: string) => {
@@ -33,24 +35,24 @@ const RentalDuration = () => {
 
 
   return (
-    <div className="flex mx-2 sm:mx-10 justify-around items-center flex-col sm:flex-row gap-4   p-2 text-black">
+    <div className="flex   w-full  justify-between items-center flex-col sm:flex-row gap-4   py-2 text-black">
     <div className="flex items-center  space-x-4">
-      <label htmlFor="start-date" className="font-semibold">Trip Start</label>
+      <label htmlFor="start-date" className='text-gray-400 text-[13px]'>Trip Start</label>
       <input
       onChange={(e)=>handleStartDateChange(e)}
         type="datetime-local"
         id="start-date"
-        className="border rounded p-1"
+        className='bg-white p-1 border-[1px] w-full rounded-md outline-none focus:border-yellow-300 text-[14px]'
         min={new Date().toISOString().slice(0, 16)} 
       />
     </div>
     <div className="flex items-center space-x-4">
-      <label htmlFor="end-date" className="font-semibold">Trip End</label>
+      <label htmlFor="end-date" className='text-gray-400 text-[13px]' >Trip End</label>
       <input
       onChange={(e)=>handleEndDateChange(e)}
         type="datetime-local"
         id="end-date"
-        className="border rounded p-1"
+        className='bg-white p-1 border-[1px] w-full rounded-md outline-none focus:border-yellow-300 text-[14px]'
         min={new Date().toISOString().slice(0, 16)} 
       />
     </div>

@@ -18,8 +18,10 @@ function Wrapper() {
   const getCars = async ()=>{
     try {
       setLoading(true)
+      console.log("recahed")
       const response = await axios.post(`api/search`,{selectedClass,selectedFuel,selectedYear})
-      
+      console.log(response)
+      console.log(response.data.data)
       setCars(response.data.data)
     } catch (error:any) {
       setError(error.message)

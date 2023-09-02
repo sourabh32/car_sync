@@ -4,6 +4,7 @@ import { Inter,Outfit } from 'next/font/google'
 import CarProvider from '@/context/CarContext'
 import { QueryProvider } from '../context/QueryContext'
 import RentalDuration from '../components/RentalDuration'
+import { RideProvider } from '@/context/RideContext'
 const outfit = Outfit({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -23,11 +24,15 @@ export default function RootLayout({
     <html lang="en">
       <link rel="icon" href="/logo.png" sizes="any" />
       <CarProvider>
-      <QueryProvider>
+     
+        <RideProvider >
+        <QueryProvider>
       <body className={outfit.className}>
-        {/* <RentalDuration /> */}
+       
         {children}</body>
-      </QueryProvider>
+        </QueryProvider>
+        </RideProvider>
+      
       </CarProvider>
       
     </html>

@@ -23,6 +23,7 @@ console.log(fuel)
     const myOptions = returnCarOptions(make,year,fuel)
 try {
 	const response = await axios.request(myOptions);
+  console.log(response.data)
 	return response.data
 } catch (error) {
 	console.error(error);
@@ -30,7 +31,8 @@ try {
 }
 
 
-export const generateCarImageUrl = (car) => {
+
+export const generateCarImageUrl = (car,angle) => {
     const url = new URL("https://cdn.imagin.studio/getimage");
     const { make, model, year } = car;
   
@@ -40,7 +42,10 @@ export const generateCarImageUrl = (car) => {
     url.searchParams.append('zoomType', 'fullscreen');
     url.searchParams.append('modelYear', `${year}`);
     // url.searchParams.append('zoomLevel', zoomLevel);
-    // url.searchParams.append('angle', `${angle}`);
+    if(angle){
+ url.searchParams.append('angle', `${angle}`);
+    }
+   
   
     return `${url}`;
   } 
