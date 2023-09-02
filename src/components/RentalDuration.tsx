@@ -36,7 +36,8 @@ const RentalDuration = () => {
 
   return (
     <div className="flex   w-full  justify-between items-center flex-col sm:flex-row gap-4   py-2 text-black">
-    <div className="flex items-center  space-x-4">
+    <div className="flex items-center  ">
+      <div className='w-full'>
       <label htmlFor="start-date" className='text-gray-400 text-[13px]'>Trip Start</label>
       <input
       onChange={(e)=>handleStartDateChange(e)}
@@ -45,8 +46,10 @@ const RentalDuration = () => {
         className='bg-white p-1 border-[1px] w-full rounded-md outline-none focus:border-yellow-300 text-[14px]'
         min={new Date().toISOString().slice(0, 16)} 
       />
+      </div>
     </div>
-    <div className="flex items-center space-x-4">
+    <div className="flex items-center ">
+    <div className='w-full'>
       <label htmlFor="end-date" className='text-gray-400 text-[13px]' >Trip End</label>
       <input
       onChange={(e)=>handleEndDateChange(e)}
@@ -55,8 +58,9 @@ const RentalDuration = () => {
         className='bg-white p-1 border-[1px] w-full rounded-md outline-none focus:border-yellow-300 text-[14px]'
         min={new Date().toISOString().slice(0, 16)} 
       />
+      </div>
     </div>
-    <div>
+    <div className='w-full'>
         <p>Hours: <span className='text-red-600 font-bold'>{timeDifferenceHours}</span></p>
     </div>
   </div>
