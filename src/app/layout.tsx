@@ -5,6 +5,7 @@ import CarProvider from '@/context/CarContext'
 import { QueryProvider } from '../context/QueryContext'
 import RentalDuration from '../components/RentalDuration'
 import { RideProvider } from '@/context/RideContext'
+import NavBar from '@/components/NavBar'
 const outfit = Outfit({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ export default function RootLayout({
         <RideProvider >
         <QueryProvider>
       <body className={outfit.className}>
-       
+       <NavBar />
         {children}</body>
         </QueryProvider>
         </RideProvider>
