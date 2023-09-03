@@ -16,11 +16,11 @@ function Booking() {
 
  
   const handleBook = async ()=>{
-    const stripe = await stripePromise
+    
     const response = await axios.post("/api/create-payment-intent",{data:{amount:89}})
 console.log(response)
     
-   
+   router.push("/payment")
   }
   return (
     <div className='p-5 '>
