@@ -22,16 +22,17 @@ export default function PaymentForm() {
     if (!stripe) {
       return;
     }
-
+   
     const clientSecret = new URLSearchParams(window.location.search).get(
         "payment_intent_client_secret"
       );
-
+ console.log(clientSecret)
     if (!clientSecret) {
       return;
     }
 
-    stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }:any) => {
+     stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }:any) => {
+      console.log("from",paymentIntent)
       switch (paymentIntent.status) {
         case "succeeded":
           setMessage("Payment succeeded!");
@@ -53,18 +54,17 @@ export default function PaymentForm() {
     e.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js hasn't yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
+      
       return;
     }
-
+    
     setIsLoading(true);
 
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
         
-        return_url: "http://localhost:5173",
+        return_url: "http://localhost:3000",
       },
     });
 
@@ -83,7 +83,7 @@ export default function PaymentForm() {
   };
 
   return (
-    <form style={{width:"50%"}} id="payment-form" onSubmit={handleSubmit}>
+    <form  id="payment-form" onSubmit={handleSubmit}>
      
       <PaymentElement id="payment-element" options={paymentElementOptions} />
       <button disabled={isLoading || !stripe || !elements} id="submit">

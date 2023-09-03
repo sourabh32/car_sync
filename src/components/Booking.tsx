@@ -17,10 +17,11 @@ function Booking() {
  
   const handleBook = async ()=>{
     
-    const response = await axios.post("/api/create-payment-intent",{data:{amount:89}})
+    const response = await axios.post("/api/create-payment-intent",{data:{amount:200}})
 console.log(response)
     
-   router.push("/payment")
+   router.push(`/payment/${response.data}
+   `)
   }
   return (
     <div className='p-5 '>
