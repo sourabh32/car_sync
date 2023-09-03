@@ -19,11 +19,11 @@ import axios from "axios";
 export const fetchCars = async  (make,year,fuel) =>{
   
   
-console.log(fuel)
+
     const myOptions = returnCarOptions(make,year,fuel)
 try {
 	const response = await axios.request(myOptions);
-  console.log(response.data)
+ 
 	return response.data
 } catch (error) {
 	console.error(error);

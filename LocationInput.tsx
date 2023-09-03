@@ -9,7 +9,7 @@ const LocationInput = () => {
     const [addressData,setAddressData] = useState([])
   const fetchAddress =  async ()=>{
     const {data} = await axios.get(`https://api.geoapify.com/v1/geocode/autocomplete?text=${startLocation}&apiKey=${process.env.NEXT_PUBLIC_GEOPIFY}`)
-    console.log(data.features)
+    
     setAddressData(data.features)
   }
     useEffect(()=>{

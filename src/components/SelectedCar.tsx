@@ -9,7 +9,7 @@ import React from "react";
 const SelectedCar = () => {
     const {selectedCar} = useRideContext()
    const car :any ={...selectedCar}
-    console.log(car)
+   
   return (
     <>{
         selectedCar && 

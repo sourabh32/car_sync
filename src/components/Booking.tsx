@@ -1,13 +1,27 @@
+"use client"
 import React from 'react'
 import AutocompleteAddress from './AutocompleteAddress'
 import RentalDuration from './RentalDuration'
 import SelectedCar from './SelectedCar'
+import { useRouter } from 'next/navigation'
+import { loadStripe } from '@stripe/stripe-js'
+import axios from 'axios'
 
 
 
-
+const stripePromise =  loadStripe(process.env.
+  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
 function Booking() {
-  
+  const router = useRouter()
+
+ 
+  const handleBook = async ()=>{
+    const stripe = await stripePromise
+    const response = await axios.post("/api/create-payment-intent",{data:{amount:89}})
+console.log(response)
+    
+   
+  }
   return (
     <div className='p-5 '>
          <h2 className='text-[20px] font-semibold'>Selected Car</h2>
@@ -24,7 +38,8 @@ function Booking() {
         <AutocompleteAddress/>
        
         
-        <button className='w-full
+        <button 
+        onClick={handleBook} className='w-full
          bg-yellow-400
         p-1 rounded-md
         mt-4'>Book</button>

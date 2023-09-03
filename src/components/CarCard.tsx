@@ -9,7 +9,7 @@ const CarCard = ({ car }:any) => {
     const {setSelectedCar} = useRideContext()
     const router = useRouter()
     const onSelect = ()=>{
-      console.log(car)
+      
       setSelectedCar({...car,perHour:city_mpg*30,img:generateCarImageUrl(car,"29")})
       router.push("/ride-details")
     }

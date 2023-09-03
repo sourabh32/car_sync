@@ -1,4 +1,4 @@
-import React, { useState,useEffect, use } from 'react';
+import React, { useEffect,  } from 'react';
 import {manufacturers,fuels,yearsOfProduction} from "@/static/index"
 import DropDown from './DropDown'; 
 import axios from "axios"
@@ -18,10 +18,10 @@ function Wrapper() {
   const getCars = async ()=>{
     try {
       setLoading(true)
-      console.log("recahed")
+     
       const response = await axios.post(`api/search`,{selectedClass,selectedFuel,selectedYear})
-      console.log(response)
-      console.log(response.data.data)
+      
+      
       setCars(response.data.data)
     } catch (error:any) {
       setError(error.message)

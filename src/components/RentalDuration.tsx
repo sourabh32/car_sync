@@ -9,7 +9,7 @@ const RentalDuration = () => {
     const [timeDifferenceHours, setTimeDifferenceHours] = useState<number>(0);
 
     const {startTime,setStartTime,setEndTime,endTime} = useRideContext()
-  console.log(timeDifferenceHours.toFixed())
+  
     const handleStartDateChange = (event: ChangeEvent<HTMLInputElement>) => {
       const newStartDate = event.target.value;
       console.log(newStartDate)
