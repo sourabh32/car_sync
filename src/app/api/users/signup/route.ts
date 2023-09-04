@@ -5,12 +5,13 @@ import bcryptjs from "bcryptjs"
 
 connect()
 export async function POST(request:NextRequest){
+   
     try {
 
         
-        const reqBody = await request.json()
-        const {email,password,username} = reqBody
-
+        const {userName,email,password} = await request.json()
+         
+  
         const user = await User.findOne({email})
 
         if(user){
@@ -22,7 +23,7 @@ export async function POST(request:NextRequest){
         const hashedPassword = await bcryptjs.hash(password,salt)
 
         const newUser = new User({
-            username,
+            username:userName,
             email,
             password:hashedPassword
         })
@@ -34,6 +35,7 @@ export async function POST(request:NextRequest){
             message: "User created successfully",
             success: true,
             savedUser
+            
         })
     } catch (error:any) {
         return NextResponse.json({

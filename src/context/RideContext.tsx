@@ -2,7 +2,7 @@
 import React, { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from "react";
 
 interface RideContextType {
-  selectedCar: object;
+  selectedCar: object | null,
   startTime: string;
   endTime: string;
   pickUp: string;
@@ -15,7 +15,7 @@ interface RideContextType {
 }
 
 const defaultRideContext: RideContextType = {
-  selectedCar: {},
+  selectedCar:null,
   startTime: "",
   endTime: "",
   pickUp: "",
@@ -34,12 +34,12 @@ interface RideProviderProps {
 }
 
 const RideProvider: React.FC<RideProviderProps> = ({ children }) => {
-  const [selectedCar, setSelectedCar] = useState<object>({});
+  const [selectedCar, setSelectedCar] = useState<object | null>(null);
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [pickUp, setPickUp] = useState("");
   const [dropOff, setDropOff] = useState("");
-console.log(selectedCar)
+
   const value: RideContextType = {
     selectedCar,
     startTime,

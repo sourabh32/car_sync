@@ -14,7 +14,7 @@ export default function Home() {
 
 
   return (
-    <main className='p-5 border-blue-700' >
+    <main className='p-5' >
       <div className='mx-2 sm:mx-10 py-10'>
       <Hero />
       </div>

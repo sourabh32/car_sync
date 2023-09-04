@@ -8,6 +8,7 @@ import React from "react";
 
 const SelectedCar = () => {
     const {selectedCar} = useRideContext()
+    console.log(selectedCar)
    const car :any ={...selectedCar}
    
   return (
