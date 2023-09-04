@@ -1,12 +1,13 @@
 "use client"
 
 
+import CarList from '@/components/CarList'
+import Hero from '@/components/Hero'
+import Wrapper from '@/components/Wrapper'
 import React from 'react'
 
 
-import Wrapper from "@/components/Wrapper"
-import CarsList from '@/components/CarList'
-import Hero from '@/components/Hero'
+
 export default function Home() {
 
 
@@ -23,7 +24,7 @@ export default function Home() {
         <p className="text-xl  mb-4">Find your perfect fit!</p>
       <Wrapper />
     
-      <CarsList  />
+      <CarList  />
       </div>
       
     </main>

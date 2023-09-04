@@ -1,5 +1,7 @@
-import mongoose from "mongoose";
 
+
+
+import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema({
     username: {
@@ -7,20 +9,18 @@ const userSchema = mongoose.Schema({
         required: [true, "Please provide a username"],
         unique: true,
     },
-    email:{
-        type:String,
-        required:[true,"Please provide an email"],
-        unique:true
+    email: {
+        type: String,
+        required: [true, "Please provide an email"],
+        unique: true,
     },
-    password:{
-        type:String,
-        required:[true,"Please provide an password"],
-        
+    password: {
+        type: String,
+        required: [true, "Please provide a password"],
     },
     forgotPasswordToken: String,
     forgotPasswordTokenExpiry: Date,
-})
+});
 
-
-
-export const User = mongoose.model.users || mongoose.model("users",userSchema)
+// Check if the 'users' model already exists; if not, create it
+export const User = mongoose.models.users || mongoose.model("users", userSchema);

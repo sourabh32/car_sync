@@ -1,5 +1,6 @@
 "use client"
 
+import { useUserContext } from '@/context/UserContexr';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
@@ -9,6 +10,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [loading,setLoading] = useState(false)
   const router = useRouter()
+  const  {authChanged,setAuthChanged} =useUserContext()
   const resetForm = () =>{
     setEmail('')
     setPassword('')
@@ -30,11 +32,12 @@ const LoginForm = () => {
         setLoading(true);
         const response = await axios.post("/api/users/login", {email,password});
         console.log("login success", response.data);
+        setAuthChanged(!authChanged)
         resetForm()
-        router.push("/")
+        router.push("/profile")
         
     } catch (error:any) {
-        console.log("Signup failed", error.message);
+        console.log("Login failed", error.message);
        
     }finally {
         setLoading(false);
@@ -75,7 +78,7 @@ const LoginForm = () => {
         />
       </div>
       <button type="submit" className="w-full px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-md">
-      {loading? "loading":"Sign Up"} 
+      {loading? "loading":"Log In"} 
       </button>
     </form>
     </main>

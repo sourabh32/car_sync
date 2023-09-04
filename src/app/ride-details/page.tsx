@@ -1,5 +1,6 @@
-import Booking from '@/components/Booking'
 
+
+import Booking from '@/components/Booking'
 import React from 'react'
 
 

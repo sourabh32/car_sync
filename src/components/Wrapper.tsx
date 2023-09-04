@@ -3,9 +3,11 @@ import {manufacturers,fuels,yearsOfProduction} from "@/static/index"
 import DropDown from './DropDown'; 
 import axios from "axios"
 
-import { useCarContext } from '../context/CarContext';
+
 import CarsList from './CarList';
-import { useQueryContext } from '../context/QueryContext';
+import { useQueryContext } from '@/context/QueryContext';
+import { useCarContext } from '@/context/CarContext';
+
 
 
 

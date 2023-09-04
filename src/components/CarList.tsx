@@ -1,6 +1,7 @@
 import React from 'react';
 import CarCard from './CarCard';
-import { useCarContext } from '../context/CarContext';
+import { useCarContext } from '@/context/CarContext';
+
 
 const CarsList = () => {
  const {loading,error,cars} = useCarContext()
