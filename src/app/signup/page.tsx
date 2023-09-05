@@ -1,6 +1,7 @@
 "use client"
 
 import axios from 'axios';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
@@ -53,8 +54,8 @@ const SignupForm = () => {
   };
 
   return (
-    <main className='p-5 w-full my-10 border max-w-sm mx-auto' >
-    <form onSubmit={handleSignup} className="bg-gray-100 p-6 rounded-lg">
+    <main className="p-5 h-full w-full border mx-auto">
+    <form onSubmit={handleSignup} className="bg-gray-100 mx-auto my-20 p-6 lg:w-1/2 rounded-lg">
       <h2 className="text-2xl font-semibold mb-4">Sign Up</h2>
       <div className="mb-4">
         <label htmlFor="userName" className="block text-gray-700">Username</label>
@@ -95,7 +96,12 @@ const SignupForm = () => {
       <button type="submit" className="w-full px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-md">
        {loading? "loading":"Sign Up"} 
       </button>
+      <p className="text-center mt-4">
+    Already have an account? <Link href="/login" className="text-yellow-500">Sign in</Link>
+  </p>
+     
     </form>
+
     </main>
   );
 };

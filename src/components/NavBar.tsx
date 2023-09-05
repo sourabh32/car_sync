@@ -6,7 +6,7 @@ import React from 'react'
 import {toast} from 'react-hot-toast'
 
 const NavBar = () => {
-const {setAuthChanged,authChanged} = useUserContext()
+const {setAuthChanged,authChanged,user} = useUserContext()
   const logOut = async () => {
     try {
         await axios.get('/api/users/logout')
@@ -19,7 +19,7 @@ const {setAuthChanged,authChanged} = useUserContext()
     }
 }
   return (
-    <div className='flex justify-between py-2 fixed px-10 border-b-[1px] w-full '>
+    <div className='flex justify-between py-2 fixed px-10 border-b-[1px] w-full items-center '>
 
 
 
@@ -28,7 +28,9 @@ const {setAuthChanged,authChanged} = useUserContext()
         <span className='text-3xl font-bold'>Car</span> <span className='text-3xl bg-gray-800 rounded-md text-yellow-500 px-1 font-bold'>Sync</span>
       </div>
       </Link>
-      <div className='hidden md:flex gap-6'>
+    {
+      (user !== null && user !==undefined)?
+      (  <div className='hidden md:flex gap-6'>
       <Link href="/rides">
         <h2 className='hover:bg-gray-100 p-2
                rounded-md cursor-pointer transition-all'>Rides</h2>
@@ -43,7 +45,8 @@ const {setAuthChanged,authChanged} = useUserContext()
         '
   onClick={logOut}
         >Log Out</button>
-      </div>
+      </div>):(<p className='font-bold text-xl'>Welcome!</p>)
+    }
 
     </div>
     

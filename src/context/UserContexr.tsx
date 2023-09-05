@@ -1,5 +1,6 @@
 "use client"
 
+import { User } from "@/models/userModel";
 import axios from "axios";
 import { createContext, useContext, useState, ReactNode, SetStateAction, Dispatch,useEffect } from "react";
 
@@ -30,17 +31,27 @@ const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [authChanged, setAuthChanged] = useState<boolean>(false);
   
 
-  const getUser = async() =>{
-    const data= await axios.get("/api/users/get-user")
-    if(data){
-        console.log(data.data.data)
-        setUser(data.data.data)
-        if (user !== null) {
-            console.log(user.email);
-          }
+  const getUser = async () => {
+    try {
+      const response = await axios.get("/api/users/get-user");
+      const userData = response.data.data;
+    console.log(userData)
+      if (userData) {
+        
+        setUser(userData);
+      }
+    } catch (error) {
+      
+      console.error(error);
     }
-    
   }
+
+  
+  
+  
+  
+  
+  
 useEffect(() => {
   getUser()
 
