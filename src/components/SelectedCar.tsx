@@ -28,18 +28,15 @@ const SelectedCar = () => {
           />
           </div>
           <div className="p-4 w-full">
-          <p className="text-gray-600">{car.year}</p>
-        <p className="text-gray-600">Class: {car.class}</p>
-        <p className="text-gray-600">Cylinders: {car.cylinders}</p>
-        <p className="text-gray-600">Displacement: {car.displacement}</p>
-        <p className="text-gray-600">Drive: {car.drive}</p>
-        <p className="text-gray-600">Fuel Type: {car.fuel_type}</p>
-        <p className="text-gray-600">City MPG: {car.city_mpg}</p>
-        <p className="text-gray-600">Highway MPG: {car.highway_mpg}</p>
-        <p className="text-gray-600">Combination MPG: {car.combination_mpg}</p>
-        <p className="text-gray-600">Transmission: {car.transmission}</p>
-        <p className="text-2xl font-semibold mt-2">{car.price}</p>
-        <p className="text-2xl font-semibold mt-2">Per Hour: {car.perHour}</p>
+          
+
+          <h1 className="text-2xl font-semibold">{car.make} {car.model} {car.year}</h1>
+         
+       
+        
+        
+        
+        <p className="text-xl  mt-2">Per Hour: {car.perHour}₹/hour</p>
           </div>
         </div>
      

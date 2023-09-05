@@ -15,6 +15,7 @@ import ErrorPage from './ErrorPage'
 function Booking() {
   const router = useRouter()
   const {selectedCar,dropOff,pickUp,startTime,endTime} = useRideContext()
+  console.log(selectedCar)
  const visiblity = dropOff.length>0 && pickUp.length>0 && startTime.length>0 && endTime.length>0 
   const handleBook = async ()=>{
     

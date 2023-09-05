@@ -4,13 +4,13 @@ import Image from 'next/image';
 import React from 'react';
 import { useRouter } from 'next/navigation';
 const CarCard = ({ car }:any) => {
-    const {make,model,fuel_type,transmission,city_mpg}= car
+    const {make,model,fuel_type,transmission,city_mpg,year}= car
 
     const {setSelectedCar} = useRideContext()
     const router = useRouter()
     const onSelect = ()=>{
       
-      setSelectedCar({...car,perHour:city_mpg*30,img:generateCarImageUrl(car,"29")})
+      setSelectedCar({make,model,year,perHour:city_mpg*30,img:generateCarImageUrl(car,"29")})
       router.push("/ride-details")
     }
   return (
