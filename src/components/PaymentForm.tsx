@@ -9,10 +9,19 @@ import {
   useElements
 } from "@stripe/react-stripe-js";
 import axios from "axios";
-
+import { useRideContext } from "@/context/RideContext";
+import {toast} from 'react-hot-toast'
+import { useUserContext } from "@/context/UserContexr";
 export default function PaymentForm() {
   const stripe = useStripe();
   const elements = useElements();
+  const  {pickUp,dropOff,endTime,startTime,selectedCar} = useRideContext()
+  const {user} = useUserContext()
+ 
+const email = user?.email;
+const username = user?.username;
+  
+
 
  
   const [message, setMessage] = React.useState<string>("");
@@ -49,6 +58,16 @@ export default function PaymentForm() {
       }
     });
   }, [stripe]);
+  const ride = {pickUp,dropOff,endTime,startTime,selectedCar,email,username}
+  console.log(ride)
+  const saveRide = async  ()=>{
+   try {
+     const response = await axios.post("/api/users/save-ride",ride)
+     toast.success("ride saved")
+   } catch (error) {
+    console.log(error)
+   }
+  }
 
   const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -59,6 +78,7 @@ export default function PaymentForm() {
     }
     
     setIsLoading(true);
+    saveRide()
 
     const { error } = await stripe.confirmPayment({
       elements,
@@ -67,7 +87,7 @@ export default function PaymentForm() {
         return_url: "http://localhost:3000/payment-success",
       },
     });
-
+   
     
     if (error.type === "card_error" || error.type === "validation_error") {
       setMessage(String(error.message));

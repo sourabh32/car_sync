@@ -1,26 +1,22 @@
 "use client";
 import axios from "axios";
-import Link from "next/link";
-import React, {useState} from "react";
+
+import React from "react";
 import {toast} from "react-hot-toast";
 import {useRouter} from "next/navigation";
 import { useUserContext } from "@/context/UserContexr";
 
-type User = {
-    id: string; 
-    username: string;
-    email: string;
-  };
+
 export default function ProfilePage() {
     const router = useRouter()
-    const [data, setData] = useState("nothing")
+
     const {setAuthChanged,user,authChanged} =useUserContext()
     const logout = async () => {
         try {
             await axios.get('/api/users/logout')
             toast.success('Logout successful')
             setAuthChanged(!authChanged)
-            router.push("/")
+            router.push("/login")
            
         } catch (error:any) {
             console.log(error.message);

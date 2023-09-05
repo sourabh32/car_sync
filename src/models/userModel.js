@@ -18,6 +18,11 @@ const userSchema = mongoose.Schema({
         type: String,
         required: [true, "Please provide a password"],
     },
+    role: {
+        type: String,
+        required: [true, "Please provide a role"],
+        default:"customer"
+    },
     forgotPasswordToken: String,
     forgotPasswordTokenExpiry: Date,
 });

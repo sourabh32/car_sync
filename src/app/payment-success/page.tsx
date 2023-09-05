@@ -1,7 +1,11 @@
+
 import Image from 'next/image'
 import React from 'react'
 
+
 const page = () => {
+
+  
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-green-200">
       <Image src="/payment.png" alt="Ride Confirmed" height={200} width={200} />

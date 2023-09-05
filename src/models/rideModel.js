@@ -4,6 +4,16 @@
 import mongoose from "mongoose";
 
 const rideSchema = mongoose.Schema({
+    username: {
+        type: String,
+        required: [true, "Please provide a username"],
+        unique: true,
+    },
+    email: {
+        type: String,
+        required: [true, "Please provide an email"],
+        unique: true,
+    },
     pickUp: {
         type: String,
         required: [true, "Please provide a pickUp location"],
@@ -26,6 +36,12 @@ const rideSchema = mongoose.Schema({
     endTime:{
         type: Object,
         required: [true, "Please provide a selected Car details"],
+    },
+    paymentStatus:{
+        type:Boolean,
+        required: [true, "Please provide a selected Car details"],
+        default:false
+
     }
     
 });

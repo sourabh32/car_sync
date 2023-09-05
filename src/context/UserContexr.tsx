@@ -1,6 +1,6 @@
 "use client"
 
-import { User } from "@/models/userModel";
+
 import axios from "axios";
 import { createContext, useContext, useState, ReactNode, SetStateAction, Dispatch,useEffect } from "react";
 
@@ -8,6 +8,7 @@ type User = {
     id: string; 
     username: string;
     email: string;
+    role:string;
   };
 
 interface UserContextType {
