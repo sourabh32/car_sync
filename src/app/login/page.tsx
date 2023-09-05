@@ -82,7 +82,7 @@ const LoginForm = () => {
       {loading ? "Loading" : "Log In"}
     </button>
     <p className="text-center mt-4">
-    Don't have an account? <Link href="/signup" className="text-yellow-500">Create an account</Link>
+    Do not have an account? <Link href="/signup" className="text-yellow-500">Create an account</Link>
   </p>
   </form>
 </main>
