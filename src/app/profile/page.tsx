@@ -5,6 +5,7 @@ import React from "react";
 import {toast} from "react-hot-toast";
 import {useRouter} from "next/navigation";
 import { useUserContext } from "@/context/UserContexr";
+import Image from "next/image";
 
 
 export default function ProfilePage() {
@@ -28,22 +29,37 @@ export default function ProfilePage() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
-            <h1>Profile</h1>
-            <hr />
-            <p>Profile page</p>
-            
-            {
-  user !== null && user !== undefined && <p>{user.email}</p>
-}
-        <hr />
+       
+        {user !== null && user !== undefined && (
+          <div className="flex flex-col items-center">
+            <Image
+              src="/user.png"
+              alt="User Avatar"
+              width={200}
+              height={200}
+            />
+            <p className="text-xl font-semibold mb-2">{user.username}</p>
+            <p className="text-gray-600 mb-4">{user.email}</p>
+            {user.role === "admin" && (
+              <button
+                onClick={() => {
+                  router.push("/admin")
+                }}
+                className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded"
+              >
+                Go to Admin Page
+              </button>
+            )}
+          </div>
+        )}
+       
         <button
-        onClick={logout}
-        className="bg-blue-500 mt-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >Logout</button>
-
-        
-
-
-            </div>
+          onClick={logout}
+          className="bg-red-500 my-2 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded"
+        >
+          Logout
+        </button>
+      </div>
+  
     )
 }

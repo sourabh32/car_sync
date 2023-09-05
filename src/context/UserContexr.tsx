@@ -37,7 +37,7 @@ const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
       const response = await axios.get("/api/users/get-user");
       const userData = response.data.data;
     console.log(userData)
-      if (userData) {
+      if (userData !== undefined) {
         
         setUser(userData);
       }
