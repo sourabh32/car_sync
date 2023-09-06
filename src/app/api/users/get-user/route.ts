@@ -13,6 +13,7 @@ export async function GET(request: NextRequest) {
         if(token === ''){
             return   NextResponse.json({error: "already logged out!"}, {status: 400});
         }
+        console.log(token)
        
         const decodedToken:any = jwt.verify(token, process.env.NEXT_PUBLIC_TOKEN_SECRET!);
        console.log(decodedToken)
