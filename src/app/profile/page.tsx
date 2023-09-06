@@ -47,6 +47,7 @@ export default function ProfilePage() {
         }
     }
   useEffect(()=>{
+    console.log("logging from profile")
     getUser()
   },[])
     
