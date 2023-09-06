@@ -12,6 +12,7 @@ export default function ProfilePage() {
     const router = useRouter()
 
     const {setAuthChanged,user,authChanged} =useUserContext()
+    console.log("from",user)
     const logout = async () => {
         try {
             await axios.get('/api/users/logout')
