@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
             })
         }
         const decodedToken:any = jwt.verify(token, process.env.NEXT_PUBLIC_TOKEN_SECRET!);
-      
+       console.log(decodedToken)
        
        
         
