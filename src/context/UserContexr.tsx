@@ -38,7 +38,7 @@ const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
       const userData = response.data.data;
     console.log(userData)
       if (userData !== undefined) {
-        
+        console.log(userData)
         setUser(userData);
       }
     } catch (error) {
