@@ -10,11 +10,7 @@ export async function GET(request: NextRequest) {
 
 
         const token = request.cookies.get("token")?.value || '';
-        if(token === ''){
-            return NextResponse.json({
-                message: "User don't exist or logged out",
-            })
-        }
+       
         const decodedToken:any = jwt.verify(token, process.env.NEXT_PUBLIC_TOKEN_SECRET!);
        console.log(decodedToken)
        
