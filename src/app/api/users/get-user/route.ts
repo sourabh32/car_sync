@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
 
 
         const token = await request.cookies.get("token")?.value || '';
-        if(token !== ''){
+        if(token === ''){
             return   NextResponse.json({error: "already logged out!"}, {status: 400});
         }
        
