@@ -4,12 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import jwt from "jsonwebtoken"
 
-type User = {
-    id: string; 
-    username: string;
-    email: string;
-    role:string;
-  };
+
 export async function GET(request: NextRequest) {
     try {
 
