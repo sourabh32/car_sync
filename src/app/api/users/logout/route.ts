@@ -9,6 +9,8 @@ export async function GET() {
                 success: true,
             }
         )
+        response.headers.set("Cache-Control", "no-store, max-age=0");
+
         response.cookies.set("token", "", 
         { httpOnly: true, expires: new Date(0) 
         });
