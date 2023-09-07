@@ -6,15 +6,10 @@ export async function GET() {
             {
                 message: "Logout successful",
                 success: true,
-            },
-            {
-                headers: {
-                    "Cache-Control": "no-store, max-age=0",
-                },
             }
         );
 
-        // Add a pragma header to force revalidation by the browser
+       
         response.headers.set("Pragma", "no-cache");
 
         // Clear the token cookie
