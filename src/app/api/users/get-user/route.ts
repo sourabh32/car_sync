@@ -11,13 +11,17 @@ export async function GET(request: NextRequest) {
 
         const token =  request.cookies.get("token")?.value || '';
          console.log("token",token)
-        if(token === ''){
-            return NextResponse.json({error: "user logged out"}, {status: 400});
+        if(token !== ''){
+            const decodedToken:any = jwt.verify(token, process.env.NEXT_PUBLIC_TOKEN_SECRET!);
+            console.log(decodedToken)
+            return NextResponse.json({
+                message: "User found",
+                data: decodedToken
+            } );
         }
         
        
-        const decodedToken:any = jwt.verify(token, process.env.NEXT_PUBLIC_TOKEN_SECRET!);
-       console.log(decodedToken)
+      
        
     //    const decodedToken = {
     //     id:"gdhdhdd",
@@ -26,10 +30,7 @@ export async function GET(request: NextRequest) {
     //     email:"mangal@gmail.com"
     //    }
         
-        return NextResponse.json({
-            message: "User found",
-            data: decodedToken
-        } );
+       
     } catch (error: any) {
         return NextResponse.json({error: error.message}, {status: 400});
     }
