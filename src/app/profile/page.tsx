@@ -14,25 +14,12 @@ type User = {
   role:string;
 };
 export default function ProfilePage() {
-  const [user,setUser] = useState<User | null>(null)
+  
     const router = useRouter()
 
-    const getUser = async () => {
-      try {
-        const response = await axios.get("/api/users/get-user");
-        const userData = response.data.data;
-      console.log(userData)
-        if (userData !== undefined) {
-          console.log("from user adat",userData)
-          setUser(userData);
-        }
-      } catch (error) {
-        
-        console.error(error);
-      }
-    }
+    
 
-    const {setAuthChanged,authChanged} =useUserContext()
+    const {setAuthChanged,authChanged,user} =useUserContext()
     console.log("from",user)
     const logout = async () => {
         try {
@@ -46,10 +33,7 @@ export default function ProfilePage() {
             toast.error(error.message)
         }
     }
-  useEffect(()=>{
-    console.log("logging from profile")
-    getUser()
-  },[])
+ 
     
 
     return (
