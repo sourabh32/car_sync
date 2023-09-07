@@ -10,7 +10,7 @@ const {setAuthChanged,authChanged,user} = useUserContext()
 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const logOut = async () => {
     try {
-        await axios.get('/api/users/logout')
+        await axios.post('/api/users/logout')
         toast.success('Logout successful')
         setAuthChanged(!authChanged)
         
