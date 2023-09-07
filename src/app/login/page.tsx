@@ -35,7 +35,7 @@ const LoginForm = () => {
         console.log("login success", response.data);
         setAuthChanged(!authChanged)
         resetForm()
-        router.push("/")
+        router.push("/profile")
         
     } catch (error:any) {
         console.log("Login failed", error.message);

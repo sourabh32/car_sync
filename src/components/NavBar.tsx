@@ -2,10 +2,12 @@
 import { useUserContext } from '@/context/UserContexr'
 import axios from 'axios'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import React,{useState} from 'react'
 import {toast} from 'react-hot-toast'
 
 const NavBar = () => {
+  const router = useRouter()
 const {setAuthChanged,authChanged,user} = useUserContext()
 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const logOut = async () => {
@@ -13,6 +15,8 @@ const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
         await axios.post('/api/users/logout')
         toast.success('Logout successful')
         setAuthChanged(!authChanged)
+        router.push("/login")
+        
         
     } catch (error:any) {
         console.log(error.message);
