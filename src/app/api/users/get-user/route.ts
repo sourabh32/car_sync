@@ -9,7 +9,11 @@ export async function GET(request: NextRequest) {
     try {
 
 
-        const token = await request.cookies.get("token")?.value || '';
+        const token =  request.cookies.get("token")?.value || '';
+         console.log("token",token)
+        if(token === ''){
+            return NextResponse.json({error: "user logged out"}, {status: 400});
+        }
         
        
         const decodedToken:any = jwt.verify(token, process.env.NEXT_PUBLIC_TOKEN_SECRET!);

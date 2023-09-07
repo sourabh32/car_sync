@@ -25,7 +25,7 @@ const appearance = {
   };
 
   return (
-    <div className="App">
+    <div className="bg-green-100">
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>
           <PaymentForm />

@@ -46,7 +46,7 @@ const toggleMobileMenu = () => {
       
     </div>
 
-    {/* Mobile menu items */}
+    
     {mobileMenuOpen && (
       <div className='md:hidden p-2 items-center justify-center flex flex-col absolute top-16 left-0 w-full bg-white border-t-[1px]'>
         <Link href='/rides'>
