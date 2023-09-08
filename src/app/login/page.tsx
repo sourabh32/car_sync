@@ -5,6 +5,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import {toast} from 'react-hot-toast';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -32,7 +33,7 @@ const LoginForm = () => {
       try {
         setLoading(true);
         const response = await axios.post("/api/users/login", {email,password});
-        
+        toast.success("LogIn Success")
         setAuthChanged(!authChanged)
         resetForm()
         router.push("/")

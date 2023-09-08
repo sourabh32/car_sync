@@ -4,7 +4,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
-
+import {toast} from 'react-hot-toast';
 const SignupForm = () => {
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
@@ -41,6 +41,7 @@ const SignupForm = () => {
         const response = await axios.post("/api/users/signup", {email,userName,password});
         
         resetForm()
+        toast.success("User Created")
         router.push("/login")
         
     } catch (error:any) {
