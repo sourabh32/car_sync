@@ -86,7 +86,7 @@ const email = user?.email;
       elements,
       confirmParams: {
         
-        return_url: "http://localhost:3000/payment-success",
+        return_url: "https://carsync.vercel.app/payment-success",
       },
     });
    
