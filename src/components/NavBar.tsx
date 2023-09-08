@@ -8,13 +8,14 @@ import {toast} from 'react-hot-toast'
 
 const NavBar = () => {
   const router = useRouter()
-const {setAuthChanged,authChanged,user} = useUserContext()
+const {setAuthChanged,authChanged,user,setUser} = useUserContext()
 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const logOut = async () => {
     try {
         await axios.post('/api/users/logout')
         toast.success('Logout successful')
         setAuthChanged(!authChanged)
+        setUser(null)
         router.push("/login")
         
         

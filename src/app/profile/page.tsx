@@ -19,13 +19,14 @@ export default function ProfilePage() {
 
     
 
-    const {setAuthChanged,authChanged,user} =useUserContext()
+    const {setAuthChanged,authChanged,user,setUser} =useUserContext()
    
     const logout = async () => {
         try {
             await axios.post('/api/users/logout')
             toast.success('Logout successful')
             setAuthChanged(!authChanged)
+            setUser(null)
             router.push("/login")
            
         } catch (error:any) {
