@@ -6,13 +6,18 @@ const Dropdown = ({ options, selected, setSelected }:any) => {
   };
 
   return (
-    <select  className="p-2  text-black w-full outline-none border-[2px] border-black rounded-full" value={selected} onChange={handleChange}>
-      {options.map((option:any) => (
-        <option className='text-black' key={option} value={option}>
-          {option}
-        </option>
-      ))}
-    </select>
+    <select
+    className="p-2 text-black w-full outline-none border-2 shadow-sm rounded-md transition-colors hover:bg-gray-300 focus:bg-white"
+    value={selected}
+    onChange={handleChange}
+  >
+    {options.map((option:any) => (
+      <option className="text-black" key={option} value={option}>
+        {option}
+      </option>
+    ))}
+  </select>
+  
   );
 };
 
