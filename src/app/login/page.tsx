@@ -32,7 +32,7 @@ const LoginForm = () => {
       try {
         setLoading(true);
         const response = await axios.post("/api/users/login", {email,password});
-        console.log("login success", response.data);
+        
         setAuthChanged(!authChanged)
         resetForm()
         router.push("/profile")
@@ -53,7 +53,7 @@ const LoginForm = () => {
   return (
 <main className="p-5 h-full w-full border mx-auto">
   <form onSubmit={handleLogin} className="bg-gray-100 my-20 p-6 rounded-lg lg:w-1/2 mx-auto">
-    <h2 className="text-2xl font-semibold mb-4">Login</h2>
+    <h2 className="text-2xl text-center font-semibold mb-4">Login</h2>
     <div className="mb-4">
       <label htmlFor="email" className="block text-gray-700">Email</label>
       <input

@@ -5,7 +5,7 @@ import { useCarContext } from '@/context/CarContext';
 
 const CarsList = () => {
  const {loading,error,cars} = useCarContext()
-console.log(cars)
+
  
  if (loading) {
   return (
@@ -16,7 +16,7 @@ console.log(cars)
 }
 
 return (
-  <div className='p-1 sm:p-5 border-[3px] gap-5 grid grid-cols-1 sm:grid-cols-2' >
+  <div className='p-1 sm:p-5  gap-5 grid grid-cols-1 sm:grid-cols-2' >
     {cars?.length > 0 ? (
       cars.map((car, index) => (
         <CarCard key={index} car={car} />

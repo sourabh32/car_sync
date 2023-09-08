@@ -7,9 +7,8 @@ import React from 'react'
 const page = () => {
   
   return (
-    <main className='p-5' >
+    <main className='sm:p-5 p-2' >
       <Booking />
-       
       
     </main>
   )

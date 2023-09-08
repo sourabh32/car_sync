@@ -20,7 +20,7 @@ export default function ProfilePage() {
     
 
     const {setAuthChanged,authChanged,user} =useUserContext()
-    console.log("from",user)
+   
     const logout = async () => {
         try {
             await axios.post('/api/users/logout')

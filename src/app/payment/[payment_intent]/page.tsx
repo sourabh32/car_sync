@@ -3,6 +3,7 @@ import React from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import PaymentForm from "@/components/PaymentForm";
+import Image from "next/image";
 
 
 
@@ -25,7 +26,8 @@ const appearance = {
   };
 
   return (
-    <div className="bg-green-100">
+    <div className="py-20">
+    
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>
           <PaymentForm />

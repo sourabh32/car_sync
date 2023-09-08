@@ -11,19 +11,10 @@ export async function POST(request:NextRequest){
 
         
         const reqBody = await request.json()
-         console.log(reqBody)
-         const {selectedCar,pickUp,dropOff,startTime,endTime,email,username} = reqBody
+         
+         const {selectedCar,pickUp,dropOff,startTime,endTime,email} = reqBody
   
-        // const user = await User.findOne({email})
-
-        // if(user){
-        //     return NextResponse.json({error: "User already exists"}, {status: 400})
-        // }
-
-        // const salt = await bcryptjs.genSalt(10)
-
-        // const hashedPassword = await bcryptjs.hash(password,salt)
-
+         
         const newRide = new Ride({
             selectedCar,
             pickUp,
@@ -31,12 +22,12 @@ export async function POST(request:NextRequest){
             startTime,
             endTime,
             paymentStatus:true,
-            username,
+           
             email
         })
 
         const savedRide = await newRide.save()
-
+        
      
         return NextResponse.json({
             message: "User created successfully",
@@ -45,8 +36,10 @@ export async function POST(request:NextRequest){
             
         })
     } catch (error:any) {
+        
         return NextResponse.json({
             error :error.message
         },{status:500})
+       
     }
 }

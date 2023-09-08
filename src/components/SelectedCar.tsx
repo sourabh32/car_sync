@@ -8,7 +8,7 @@ import React from "react";
 
 const SelectedCar = () => {
     const {selectedCar} = useRideContext()
-    console.log(selectedCar)
+    
    const car :any ={...selectedCar}
    
   return (
@@ -17,7 +17,7 @@ const SelectedCar = () => {
         <div
           key={car.model}
           className="bg-white rounded-lg shadow-md  flex flex-col sm:flex-row overflow-hidden"
-        ><div className="w-full">
+        ><div className="w-full bg-yellow-400">
           <Image
             src={car.img}
             alt={"car"}
@@ -27,7 +27,7 @@ const SelectedCar = () => {
             
           />
           </div>
-          <div className="p-4 w-full">
+          <div className="p-4 flex flex-col align-center justify-center w-full">
           
 
           <h1 className="text-2xl font-semibold">{car.make} {car.model} {car.year}</h1>

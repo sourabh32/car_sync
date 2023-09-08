@@ -10,14 +10,14 @@ export async function POST(request: NextRequest) {
 
 
         const {email,password}= await request.json()
-      console.log(email,password)
+     
 
         const user = await User.findOne({ email })
 
         if (!user) {
             return NextResponse.json({ error: "User do not exists!" }, { status: 400 })
         }
-        console.log("user exists")
+        
 
 
         const validPassword = await bcryptjs.compare(password, user.password)

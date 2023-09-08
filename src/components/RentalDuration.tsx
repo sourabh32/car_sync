@@ -12,7 +12,7 @@ const RentalDuration = () => {
   
     const handleStartDateChange = (event: ChangeEvent<HTMLInputElement>) => {
       const newStartDate = event.target.value;
-      console.log(newStartDate)
+      
       setStartTime(newStartDate);
       calculateTimeDifference(newStartDate, endTime);
     };

@@ -36,9 +36,9 @@ const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     try {
       const response = await axios.get("/api/users/get-user");
       const userData = response.data.data;
-    console.log(userData)
+   
       if (userData !== undefined) {
-        console.log("from user adat",userData)
+        
         setUser(userData);
       }
     } catch (error) {
@@ -54,7 +54,7 @@ const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   
   
 useEffect(() => {
-  console.log("being called",user)
+  
   getUser()
 
   

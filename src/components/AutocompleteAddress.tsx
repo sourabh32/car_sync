@@ -18,7 +18,7 @@ function AutocompleteAddress() {
     try {
       const { data } = await axios.get(`https://api.geoapify.com/v1/geocode/autocomplete?text=${location}&apiKey=${process.env.NEXT_PUBLIC_GEOPIFY}`);
       setAddressData(data.features);
-      console.log(data.features)
+      
     } catch (error) {
       console.error(error);
     }

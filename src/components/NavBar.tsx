@@ -36,7 +36,6 @@ const toggleMobileMenu = () => {
     </div>
   </Link>
 
-  {/* Hamburger menu button for mobile */}
   <div className='md:hidden'>
     {!mobileMenuOpen ? (
       <button className='text-xl font-bold' onClick={toggleMobileMenu}>
@@ -50,7 +49,7 @@ const toggleMobileMenu = () => {
   </div>
 
   {user && (
-    // Only render the mobile menu and desktop menu items if user exists
+    
     <>
       {mobileMenuOpen && (
         <div className='md:hidden p-2 items-center justify-center flex flex-col absolute top-16 left-0 w-full bg-white border-t-[1px]'>

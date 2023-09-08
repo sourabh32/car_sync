@@ -1,7 +1,7 @@
 "use client"
 
 import { useUserContext } from '@/context/UserContexr';
-import { generateCarImageUrl } from '@/utils/utils';
+
 import axios from 'axios';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
@@ -21,7 +21,7 @@ type Ride = {
     startTime:string;
     endTime: string;
     paymentStatus: boolean;
-    username:string;
+    
     email:string;
 
   };
@@ -32,7 +32,7 @@ function Page() {
 
   const fetchRides = async () =>{
     const response = await axios.get("/api/admin/fetch-rides")
-    console.log(response)
+    
     setRides(response.data.ridesData)
   }
   
@@ -53,7 +53,7 @@ function Page() {
 
         <thead>
         <tr>
-              <th className="px-3">Username</th>
+              
               <th className="px-3">Email</th>
               <th className="px-3">Start Time</th>
               <th className="px-3">End Time</th>
@@ -69,7 +69,7 @@ function Page() {
         <tbody>
           {rides.map((ride) => (
             <tr key={ride._id}>
-              <td>{ride.username}</td>
+              
               <td>{ride.email}</td>
               <td>{ride.startTime}</td>
               <td>{ride.endTime}</td>
@@ -78,7 +78,7 @@ function Page() {
               <td>{ride.dropOff}</td>
               <td>
                 <Image
-                  src={generateCarImageUrl(ride.selectedCar)}
+                  src={ride.selectedCar.img}
                   alt={ride.selectedCar.make}
                   className="img-fluid"
                   width={100}

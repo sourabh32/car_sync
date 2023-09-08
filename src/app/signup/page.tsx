@@ -19,7 +19,7 @@ const SignupForm = () => {
     setUserName('')
   }
   const handleSignup = async (e:React.FormEvent<HTMLFormElement>) => {
-    console.log("clicked")
+    
     e.preventDefault();
     if (!userName || userName.length < 4) {
         alert('Username must be at least 4 characters long.');
@@ -39,7 +39,7 @@ const SignupForm = () => {
       try {
         setLoading(true);
         const response = await axios.post("/api/users/signup", {email,userName,password});
-        console.log("Signup success", response.data);
+        
         resetForm()
         router.push("/login")
         
@@ -56,7 +56,7 @@ const SignupForm = () => {
   return (
     <main className="p-5 h-full w-full border mx-auto">
     <form onSubmit={handleSignup} className="bg-gray-100 mx-auto my-20 p-6 lg:w-1/2 rounded-lg">
-      <h2 className="text-2xl font-semibold mb-4">Sign Up</h2>
+      <h2 className="text-2xl text-center font-semibold mb-4">Sign Up</h2>
       <div className="mb-4">
         <label htmlFor="userName" className="block text-gray-700">Username</label>
         <input

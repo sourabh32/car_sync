@@ -3,16 +3,12 @@
 
 import mongoose from "mongoose";
 
-const rideSchema = mongoose.Schema({
-    username: {
-        type: String,
-        required: [true, "Please provide a username"],
-        unique: true,
-    },
+const ridesSchema = mongoose.Schema({
+  
     email: {
         type: String,
         required: [true, "Please provide an email"],
-        unique: true,
+       
     },
     pickUp: {
         type: String,
@@ -46,5 +42,5 @@ const rideSchema = mongoose.Schema({
     
 });
 
-// Check if the 'users' model already exists; if not, create it
-export const Ride = mongoose.models.rides || mongoose.model("rides", rideSchema);
+
+export const Ride = mongoose.models.rides || mongoose.model("rides", ridesSchema);

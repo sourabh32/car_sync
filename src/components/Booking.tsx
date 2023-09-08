@@ -26,19 +26,19 @@ console.log(response)
    `)
   }
   return (
-    <div className='p-5 '>
+    <div className='sm:p-5 p-1 '>
 
       {
         selectedCar ? (<>
         <h2 className='text-[20px] font-semibold'>Selected Car</h2>
-        <div className='border-[1px] p-5 
-        rounded-md mb-5' >
+        <div className='
+        rounded-md mt-10 mb-5' >
             
         <SelectedCar />
         
         </div>
         <h2 className='text-[20px] font-semibold'>Booking</h2>
-        <div className='border-[1px] p-5 
+        <div className='border-[1px] sm:p-5 p-1
         rounded-md' >
             <RentalDuration />
         <AutocompleteAddress/>

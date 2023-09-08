@@ -19,7 +19,7 @@ export default function Home() {
       <div className='mx-2 sm:mx-10 py-10'>
       <Hero />
       </div>
-      <div className='mx-2 sm:mx-10'>
+      <div className='mx-1 sm:mx-10'>
         <h2 className="text-4xl font-bold mb-2">Car Catlouge</h2>
         <p className="text-xl  mb-4">Find your perfect fit!</p>
       <Wrapper />

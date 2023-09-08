@@ -14,14 +14,14 @@ const CarCard = ({ car }:any) => {
       router.push("/ride-details")
     }
   return (
-    <div className="w-full cursor-pointer hover:border-gray-200  border-2 p-4 bg-gray-50 shadow-lg rounded-lg overflow-hidden">
+    <div className="w-full cursor-pointer hover:border-gray-200  border-2 p-4 shadow-lg rounded-lg overflow-hidden">
        <h2  className="text-xl font-semibold"> {make[0].toUpperCase() +make.substring(1)} {model[0].toUpperCase() +model.substring(1)}</h2>
-          <div className='relative w-full h-40 my-3 object-contain'>
+          <div className='relative rounded-md bg-yellow-400 w-full h-40 my-2 object-contain'>
         <Image src={generateCarImageUrl(car)} alt='car model' fill priority className='object-contain' />
       </div>
     
       
-      <div className='relative flex w-full mt-2'>
+      <div className='relative flex w-full mt-12'>
      
         <div className='flex  w-full justify-between text-grey'>
           <div className='flex flex-col justify-center items-center gap-2'>

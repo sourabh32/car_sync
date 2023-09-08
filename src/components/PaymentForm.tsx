@@ -12,6 +12,7 @@ import axios from "axios";
 import { useRideContext } from "@/context/RideContext";
 import {toast} from 'react-hot-toast'
 import { useUserContext } from "@/context/UserContexr";
+import Image from "next/image";
 export default function PaymentForm() {
   const stripe = useStripe();
   const elements = useElements();
@@ -19,7 +20,7 @@ export default function PaymentForm() {
   const {user} = useUserContext()
  
 const email = user?.email;
-const username = user?.username;
+
   
 
 
@@ -35,13 +36,13 @@ const username = user?.username;
     const clientSecret = new URLSearchParams(window.location.search).get(
         "payment_intent_client_secret"
       );
- console.log(clientSecret)
+
     if (!clientSecret) {
       return;
     }
 
      stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }:any) => {
-      console.log("from",paymentIntent)
+      
       switch (paymentIntent.status) {
         case "succeeded":
           setMessage("Payment succeeded!");
@@ -58,11 +59,12 @@ const username = user?.username;
       }
     });
   }, [stripe]);
-  const ride = {pickUp,dropOff,endTime,startTime,selectedCar,email,username}
-  console.log(ride)
+  const ride = {pickUp,dropOff,endTime,startTime,selectedCar,email}
+ 
   const saveRide = async  ()=>{
    try {
      const response = await axios.post("/api/users/save-ride",ride)
+     
      toast.success("ride saved")
    } catch (error) {
     console.log(error)
@@ -103,14 +105,17 @@ const username = user?.username;
   };
 
   return (
-    <form  id="payment-form" onSubmit={handleSubmit}>
+    <form  className="mt-10" id="payment-form" onSubmit={handleSubmit}> 
+      <Image className="mx-auto" src={"/transaction.png"} alt={"payment"} height={70} width={70} />
      
-      <PaymentElement id="payment-element" options={paymentElementOptions} />
-      <button disabled={isLoading || !stripe || !elements} id="submit">
+      <PaymentElement className="mt-10" id="payment-element" options={paymentElementOptions} />
+      <div className="w-full flex justify-center">
+      <button className="w-fit bg-yellow-400 py-2 px-4 rounded-md my-2 " disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+          {isLoading ? "Processing..." : "Pay now"}
         </span>
       </button>
+      </div>
       {/* Show any error or success messages */}
       {message && <div id="payment-message">{message}</div>}
     </form>

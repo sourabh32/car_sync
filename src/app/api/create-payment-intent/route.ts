@@ -9,7 +9,7 @@ const stripe = new Stripe(process.env.STRIPE_API_KEY!, {
 export async function POST(req: NextRequest) {
   const { data } = await req.json();
   const { amount } = data;
-  console.log("hell")
+  
   
   try {
     const paymentIntent = await stripe.paymentIntents.create({
