@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <div className='flex flex-col gap-10 items-center justify-center'>
         <div className='pt-8 '>
-        <h1 className="2xl:text-[72px] sm:text-[64px] text-[50px] font-semibold">
+        <h1 className=" sm:text-[64px] text-[50px] font-semibold">
           Select car, pick time-slot, rent a car—quick and super easy!
         </h1>
 
