@@ -29,7 +29,7 @@ interface SelectedCar {
  
   
 
-const page = () => {
+const Page = () => {
 
     const [rides,setRides] = useState<Ride[] | []>([])
 const {user} = useUserContext()
@@ -42,9 +42,9 @@ const data = user?.email || ''
       setRides(response.data.ridesData)
     }
     useEffect(()=>{
-        if(data.length>0){
+        
             getRides()
-        }
+        
     
     },[user])
   return (
@@ -53,7 +53,7 @@ const data = user?.email || ''
 
     {
         rides.length>0 &&
-        rides.map((ride:Ride)=>(<RideInfo ride={ride} />))
+        rides.map((ride:Ride)=>(<RideInfo key={ride._id} ride={ride} />))
     }
    </div>
 
@@ -61,4 +61,4 @@ const data = user?.email || ''
   )
 }
 
-export default page
+export default Page
